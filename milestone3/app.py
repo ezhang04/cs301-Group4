@@ -231,6 +231,7 @@ def make_prediction(n_clicks, input_str):
             return f"Prediction failed: {str(e)}"
     return ""
 
+server = app.server
 # Run app
 if __name__ == '__main__':
-    app.run(port=int(os.environ.get("PORT", 8080)),host='0.0.0.0',debug=True)
+    app.run(debug=True)
