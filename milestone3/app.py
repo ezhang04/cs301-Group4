@@ -9,6 +9,7 @@ from sklearn.metrics import r2_score
 from sklearn.linear_model import LinearRegression
 import plotly.express as px
 import io
+import os
 
 import pandas as pd
 
@@ -232,4 +233,4 @@ def make_prediction(n_clicks, input_str):
 
 # Run app
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=int(os.environ.get("PORT", 8080)),host='0.0.0.0',debug=True)
