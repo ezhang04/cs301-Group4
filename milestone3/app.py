@@ -101,7 +101,7 @@ def parse_contents(contents):
               Input('upload-data', 'contents'),
               State('upload-data', 'filename'),
               State('upload-data', 'last_modified'))
-def update_output(list_of_contents, list_of_names, list_of_dates):
+def parse_uploaded_file(list_of_contents, list_of_names, list_of_dates):
     if list_of_contents is not None:
         children = [
             parse_contents(c, n, d) for c, n, d in
@@ -234,4 +234,5 @@ def make_prediction(n_clicks, input_str):
 server = app.server
 # Run app
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 8050))
+    app.run(debug=True, host='0.0.0.0', port=port)
